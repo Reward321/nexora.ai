@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>PolicyPilot — Policy Assistant</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-icon">P</span>
+      <span>PolicyPilot</span>
+    </a>
+    <span class="demo-label">AI POLICY DEMO</span>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      <p class="eyebrow">COMPANY POLICY ASSISTANT</p>
+      <h1>Answers from the <span>actual policy.</span></h1>
+      <p class="intro-copy">
+        Choose a company and ask a question. The assistant uses that
+        company's published policy documents to help answer you.
+      </p>
+
+      <label for="companySelect">Choose a company</label>
+      <select id="companySelect">
+        <option value="">Loading companies...</option>
+      </select>
+
+      <div class="notice">
+        <strong>Demo only</strong>
+        <p>Companies and policies are sample data. Verify important decisions with the company directly.</p>
+      </div>
+    </section>
+
+    <section class="chat-card">
+      <div class="chat-header">
+        <div class="bot-avatar">P</div>
+        <div class="chat-heading">
+          <h2 id="companyName">Policy assistant</h2>
+          <p><span class="status-dot"></span> Powered by Gemini</p>
+        </div>
+        <button id="clearButton" class="clear-button" type="button">Clear</button>
+      </div>
+
+      <div id="chatMessages" class="chat-messages" aria-live="polite">
+        <div class="empty-state">
+          <div class="empty-icon">✳</div>
+          <h3>Ask a policy question</h3>
+          <p>Choose a company to get started.</p>
+        </div>
+      </div>
+
+      <div class="suggestions" id="suggestions">
+        <button type="button" data-question="What is the refund policy?">Refund policy</button>
+        <button type="button" data-question="How do I cancel my subscription?">Cancel subscription</button>
+        <button type="button" data-question="When is technical support available?">Support hours</button>
+      </div>
+
+      <form id="chatForm" class="chat-form">
+        <textarea
+          id="questionInput"
+          rows="1"
+          maxlength="1000"
+          placeholder="Ask about a company policy..."
+          aria-label="Your question"
+          required
+        ></textarea>
+        <button id="sendButton" type="submit" aria-label="Send message">↑</button>
+      </form>
+      <p class="input-hint">AI can make mistakes. Do not enter passwords or payment details.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>PolicyPilot · A learning project built with vanilla JS, Supabase and Gemini.</p>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
